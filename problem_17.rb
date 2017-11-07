@@ -21,7 +21,7 @@ TEENS = {
   1 => "eleven",
   2 => "twelve",
   3 => "thirteen",
-  4 => "forteen",
+  4 => "fourteen",
   5 => "fifteen",
   6 => "sixteen",
   7 => "seventeen",
@@ -75,12 +75,10 @@ res = (1..1000).map do |num|
     words << (ONES[digits[3]] + "Thousand")
   end
 
-  words.reject(&:nil?).map { |w| w.gsub(' ', '').length }.sum
+  words.reject(&:nil?).map { |w| w.gsub(' ', '').length }.reduce(&:+)
 end
 
-puts "#{res.sum}"
+puts "#{res.reduce(&:+)}"
 
-# TODO:
-#   another solution online showed 21124 (off by 10). Need to investigate
-# => 21114
+# => 21124
 
